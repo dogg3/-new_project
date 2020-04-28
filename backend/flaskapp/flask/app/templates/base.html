@@ -1,0 +1,23 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} FootyPhi </title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+  <h1>FootyPhi - API</h1>
+    <h2>Statistical Fotball Analysis</h2>
+  <ul>
+
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+
+  {% block content %}{% endblock %}
+</section>
+
+<div id="footer">
+    {% block footer %}
+        &copy; Copyright 2020 by <a href="http://domain.invalid/">FootyPhi</a>.
+    {% endblock %}
+</div>
