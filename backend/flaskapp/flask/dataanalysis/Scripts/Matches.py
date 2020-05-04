@@ -4,16 +4,21 @@ from pandas import json_normalize
 import os
 
 
+
 path = os.getcwd()
+p = pd.read_pickle(path + '/preprocessed/players.pkl')
+
+
+
 matchesEng = pd.read_json('./football-data/matches/matches_England.json')
 matchesFrance = pd.read_json('./football-data/matches/matches_France.json')
 matchesGermany = pd.read_json('./football-data/matches/matches_Germany.json')
 matchesItaly = pd.read_json('./football-data/matches/matches_Italy.json')
-matches = pd.read_json('./football-data/matches/matches_Spain.json')
+matchesSpain = pd.read_json('./football-data/matches/matches_Spain.json')
 
 
 
-frames = [matchesEng, matchesFrance, matchesGermany, matchesItaly,matches]
+frames = [matchesEng, matchesFrance, matchesGermany, matchesItaly,matchesSpain]
 matches = pd.concat(frames).reset_index()
 
 
@@ -98,6 +103,37 @@ for k,v in lineup.items(): players.loc[k,'start'] = v
 #Drop if player has'nt played a minute
 players.dropna(subset=['minutes'], inplace=True)
 players.fillna(0, inplace=True)
+
+
+
+
+#########Relevant metrics#########
+
+
+##Total number of games
+##Merge countries
+countries = players.reset_index().merge(p, how='left', left_on="playerId", right_on="wyId")[['playerId','team_country']].set_index('playerId')
+players = players.merge(countries, how="inner", on="playerId").dropna()
+
+###Total gamesx
+d = {"England": max(matchesEng['gameweek']),
+     "Germany": max(matchesGermany['gameweek']),
+     "France": max(matchesFrance['gameweek']),
+     "Italy": max(matchesItaly['gameweek']),
+     "Spain": max(matchesSpain['gameweek']) }
+
+
+
+
+players['leauge_total_games'] = players.apply(lambda x: d[x['team_country']], axis=1)
+players['leauge_total_minutes'] = players.apply(lambda x: x['leauge_total_games'] * 90, axis=1)
+players['minutes %'] = players.apply(lambda x: x['minutes'] / x['leauge_total_minutes'], axis=1)
+players['bench %'] = players.apply(lambda x: x['bench'] / x['leauge_total_games'], axis=1)
+players['start %'] = players.apply(lambda x: x['start'] / x['leauge_total_games'], axis=1)
+
+
+
+
 
 #To pickle
 players.to_pickle('./playersMatchInfo.pkl')

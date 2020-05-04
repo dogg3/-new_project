@@ -49,4 +49,7 @@ players = players[~(players['team_country'] == 'Monaco')]
 players = players.rename(columns={"role.name": "position"})
 
 
+##Escape double unicodes escapes
+players = players.applymap(lambda x: x.encode().decode('unicode-escape') if type(x) == str else x)
+
 players.to_pickle('./preprocessed/players.pkl')

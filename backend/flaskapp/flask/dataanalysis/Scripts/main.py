@@ -21,12 +21,17 @@ passes= passes.rename(columns=dict(zip(passes.columns, "passes_"+passes.columns)
 shots = pd.read_pickle('./playersShots.pkl')
 shots= shots.rename(columns=dict(zip(shots.columns, "shots_"+shots.columns)))
 
+matches = pd.read_pickle('./playersMatchInfo.pkl')
+matches = matches.rename(columns=dict(zip(matches.columns, "matches_"+matches.columns)))
 
 
 
 
-##Merge passes and duels
+
+
+##Merge passes and duels and Matches
 players = pd.merge(duels, passes, how="inner", on="playerId")
+players = players.merge(matches, how="inner", on='playerId')
 
 
 #Defenders do not need the shots and could then be saved
