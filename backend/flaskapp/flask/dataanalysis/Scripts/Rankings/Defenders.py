@@ -13,7 +13,7 @@ path = os.getcwd()
 
 ###############Loading eventypes and normalize the data by multiplying by percentage of minutes played to all minutes###########
 
-defenders = pd.read_pickle(path+'/preprocessed/final/defenders.pkl')
+defenders = pd.read_pickle('../../preprocessed/final/defenders.pkl')
 defMinutesPer = defenders.loc[:,'matches_minutes %']
 defPasses = defenders.loc[:, ['passes_acc_Simple pass %', 'passes_acc_Head pass %', 'passes_acc_High pass %']].mul(defMinutesPer, axis=0)
 defDuels = defenders.loc[:,['duels_Ground defending duel %', 'duels_Air duel %']].mul(defMinutesPer, axis=0)
@@ -85,7 +85,6 @@ EventRankings = EventRankings.sort_values(by="rank_overall",ascending=False)
 ######MERGE WITH POSITION DATAFRAME AND SAVE###########
 players = EventRankings.merge(defenders, on='playerId', how='inner')
 
-players.to_pickle(path +'/FINAL_PLAYER_DATA/DEFENDERS.pkl')
-
+players.to_pickle(path+'/pickles/DEFENDERS.pkl')
 
 

@@ -12,14 +12,14 @@ import {ReactReduxFirebaseProvider} from "react-redux-firebase";
 const rrfConfig = {
     userProfile: 'users',
     useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
-}
+};
 
 const rrfProps = {
     firebase: myFirebase,
     config: rrfConfig,
     dispatch: store.dispatch,
   //  createFirestoreInstance: true // <- needed if using firestore
-}
+};
 
 
 

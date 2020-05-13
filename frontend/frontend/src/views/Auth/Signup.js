@@ -21,7 +21,7 @@ class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {...INITIAL_STATE};
-        this.onChange.bind(this)
+        this.onChange.bind(this);
         this.onSubmit.bind(this)
 
     }
@@ -32,7 +32,7 @@ class Signup extends Component {
             .then((f)=>{
                 this.props.history.push("/start")
             }).catch(err =>{
-            console.log(err) //just show the login page
+            //console.log()(err) //just show the login page
         })
 
     }
@@ -40,22 +40,21 @@ class Signup extends Component {
 
 
     onSubmit = event => {
-        this.state.finished = false
-        event.preventDefault()
+        this.state.finished = false;
+        event.preventDefault();
         // eslint-disable-next-line no-undef
         const  {email, password1} = this.state;
-        console.log("Email from inside signup" +  email)
+        //console.log()("Email from inside signup" +  email)
          this.props.signUp(email, password1)
              .then(()=>{
-                console.log("siccerss")
                  this.setState()
             }).catch((err)=>{
-            console.log(err)
+            //console.log()(err)
              this.setState({
                  error:err
              })
          })
-    }
+    };
 
 
     onChange = event => {
@@ -120,12 +119,12 @@ const mapDispatchToProps = dispatch => {
         signUp: (email, password) => dispatch(signUp(email, password)),
         checkUser: () => dispatch(checkUser())
     }
-}
+};
 
 const mapStateToProps = state => {
-    const {auth} = state
+    const {auth} = state;
     return auth
-}
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup)

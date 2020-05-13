@@ -14,6 +14,6 @@ const Admin = () => (
         <h3>Members list with Crud</h3>
     </Container>
 
-)
+);
 
 export default Admin

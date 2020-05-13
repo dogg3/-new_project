@@ -1,8 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react";import { Link } from "react-router-dom";
 import {signOut} from "../../../../views/Auth/FireabaseSlice";
 import {connect} from 'react-redux'
-import { withFirebase } from 'react-redux-firebase'
 
 
 
@@ -14,7 +12,7 @@ import {
   DropdownItem,
   Collapse,
   NavItem,
-  NavLink
+  NavLink, Button, Col, ButtonGroup
 } from "shards-react";
 
 
@@ -45,43 +43,26 @@ class UserActions extends React.Component {
 
 
     return (
-      <NavItem tag={Dropdown} caret toggle={this.toggleUserActions}>
-        <DropdownToggle caret tag={NavLink} className="text-nowrap px-3">
-          <img
-            className="user-avatar rounded-circle mr-2"
-            src={require("./../../../../images/avatars/0.jpg")}
-            alt="User Avatar"
-          />{" "}
-          <span className="d-none d-md-inline-block">Sierra Brooks</span>
-        </DropdownToggle>
-        <Collapse tag={DropdownMenu} right small open={this.state.visible}>
-          <DropdownItem tag={Link} to="user-profile">
-            <i className="material-icons">&#xE7FD;</i> Profile
-          </DropdownItem>
-          <DropdownItem tag={Link} to="edit-user-profile">
-            <i className="material-icons">&#xE8B8;</i> Edit Profile
-          </DropdownItem>
-          <DropdownItem tag={Link} to="file-manager-list">
-            <i className="material-icons">&#xE2C7;</i> Files
-          </DropdownItem>
-          <DropdownItem tag={Link} to="transaction-history">
-            <i className="material-icons">&#xE896;</i> Transactions
-          </DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem  tag={Link} onClick={(e) => {this.props.signOut()}} className="text-danger">
-            <i  className="material-icons text-danger">&#xE879;</i> Logout
-          </DropdownItem>
-        </Collapse>
-      </NavItem>
+        <ButtonGroup style={{display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'center'}} className="mb-3">
+
+        {!this.props.auth.isEmpty && <span style={{margin:'10px'}}>{this.props.profile.email}</span>}
+        <Button onClick={e=> {this.props.signOut()}} outline theme="info">
+          Logout
+        </Button>
+        </ButtonGroup>
     );
   }
 }
-
+const mapStateToProps = state => {
+  const {auth,profile} = state.firebase;
+  return {auth,profile}
+};
 
 
 const mapDispatchToProps = dispatch => {
 return {
     signOut: () => dispatch(signOut())
+
   }
-}
-export default connect(null, mapDispatchToProps) (UserActions)
+};
+export default connect(mapStateToProps, mapDispatchToProps) (UserActions)

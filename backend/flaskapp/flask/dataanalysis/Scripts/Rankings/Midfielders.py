@@ -11,7 +11,7 @@ path = os.getcwd()
 
 
 ###############Loading eventypes and normalize the data by multiplying by percentage of minutes played to all minutes###########
-midfielders = pd.read_pickle(path+'/preprocessed/final/midfielders.pkl')
+midfielders = pd.read_pickle('../../preprocessed/final/midfielders.pkl')
 midMinutesPer = midfielders.loc[:,'matches_minutes %']
 midPasses = midfielders.loc[:, ['passes_acc_Simple pass %', 'passes_acc_High pass %', 'passes_acc_Smart pass %']].mul(midMinutesPer, axis=0)
 midDuels = midfielders.loc[:,['duels_Ground defending duel %', 'duels_Ground attacking duel %']].mul(midMinutesPer, axis=0)
@@ -87,4 +87,4 @@ EventRankings = EventRankings.sort_values(by="rank_overall",ascending=False)
 ######MERGE WITH POSITION DATAFRAME AND SAVE###########
 players = EventRankings.merge(midfielders, on='playerId', how='inner')
 
-players.to_pickle(path +'/FINAL_PLAYER_DATA/MIDFIELDER.pkl')
+players.to_pickle(path+'/pickles/MIDFIELDERS.pkl')

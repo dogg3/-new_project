@@ -7,13 +7,13 @@ function playerFetch(state={isFetching:false, players:[]}, action){
         case 'FETCH_PLAYERS_REQUEST':
             return Object.assign({}, state,{
                 isFetching:true
-            })
+            });
 
         case 'FETCH_PLAYERS_SUCCESS':
             return Object.assign({}, state,{
                 isFetching:false,
                 players: action.body
-            })
+            });
 
         default:
             return state
@@ -23,7 +23,7 @@ function playerFetch(state={isFetching:false, players:[]}, action){
 
 const rootReducer = combineReducers({
     playerFetch
-})
+});
 
 
 export default rootReducer

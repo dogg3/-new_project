@@ -24,7 +24,7 @@ function fetchPlayersFailure(ex){
 
 export function fetchPlayers() {
     return dispatch => {
-        dispatch(fetchPlayersRequest())
+        dispatch(fetchPlayersRequest());
         return fetch('http://example.com/todos')
             .then(res => res.json())
             .then(body => dispatch(fetchPlayersSuccess(body)))

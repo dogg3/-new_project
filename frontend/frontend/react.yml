@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scoutease
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      role: scoutease
+  template:
+    metadata:
+      labels:
+        role: scoutease
+    spec:
+      containers:
+        - name: scouteaseapp
+          image: gcr.io/footballproject-85cd9/frontend
+          ports:
+            - containerPort: 3000

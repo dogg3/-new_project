@@ -5,10 +5,14 @@ import { Container, Row, Col } from "shards-react";
 import MainNavbar from "../components/layout/MainNavbar/MainNavbar";
 import MainSidebar from "../components/layout/MainSidebar/MainSidebar";
 import MainFooter from "../components/layout/MainFooter";
+import requireAuth from "../views/Auth/requireAuth";
 
-const DefaultLayout = ({ children, noNavbar, noFooter }) => (
+
+
+const DefaultLayout = ({ children, noNavbar, noFooter, auth }) => (
   <Container fluid>
     <Row>
+
       <MainSidebar />
       <Col
         className="main-content p-0"
@@ -17,9 +21,9 @@ const DefaultLayout = ({ children, noNavbar, noFooter }) => (
         sm="12"
         tag="main"
       >
-        {!noNavbar && <MainNavbar />}
+        {!noNavbar  && <MainNavbar />}
         {children}
-        {!noFooter && <MainFooter />}
+        {!noFooter &&  <MainFooter />}
       </Col>
     </Row>
   </Container>
@@ -41,4 +45,7 @@ DefaultLayout.defaultProps = {
   noFooter: false
 };
 
-export default DefaultLayout;
+
+
+
+export default requireAuth(DefaultLayout);

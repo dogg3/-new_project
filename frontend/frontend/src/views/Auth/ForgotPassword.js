@@ -20,7 +20,7 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {...INITIAL_STATE};
-        this.onChange.bind(this)
+        this.onChange.bind(this);
         this.onSubmit.bind(this)
     }
 
@@ -31,13 +31,13 @@ class Login extends Component {
             .then((f)=>{
                 this.props.history.push("/start")
             }).catch(err =>{
-            console.log(err) //just show the login page
+            //console.log()(err) //just show the login page
         })
 
     }
 
     onSubmit = event => {
-        event.preventDefault()
+        event.preventDefault();
         // eslint-disable-next-line no-undef
         const  {email, password} = this.state;
         this.props.resetPassword(email)
@@ -50,7 +50,7 @@ class Login extends Component {
                 error: err
             })
         })
-    }
+    };
 
 
     onChange = event => {
@@ -103,7 +103,7 @@ const mapStateToProps = (state, ownProps) => {
         auth: state.firebase.auth
 
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) =>{
 
@@ -111,7 +111,7 @@ const mapDispatchToProps = (dispatch) =>{
         checkUser: () => dispatch(checkUser()),
         resetPassword: (email) => dispatch(resetPassword(email))
     }
-}
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

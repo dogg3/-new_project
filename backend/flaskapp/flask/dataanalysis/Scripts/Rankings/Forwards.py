@@ -10,10 +10,10 @@ pd.set_option('display.width', 999)
 
 path = os.getcwd()
 
-
+print(path)
 ###############Loading eventypes and normalize the data by multiplying by percentage of minutes played to all minutes###########
 
-forwards = pd.read_pickle(path+'/preprocessed/final/forwards.pkl')
+forwards = pd.read_pickle('../../preprocessed/final/forwards.pkl')
 forMinutesPer = forwards.loc[:,'matches_minutes %']
 forPasses = forwards.loc[:, ['passes_acc_Simple pass %', 'passes_acc_Head pass %', 'passes_acc_Smart pass %']].mul(forMinutesPer, axis=0)
 forDuels = forwards.loc[:,['duels_Ground attacking duel %', 'duels_Air duel %']].mul(forMinutesPer, axis=0)
@@ -88,4 +88,4 @@ EventRankings = EventRankings.sort_values(by="rank_overall",ascending=False)
 ######MERGE WITH POSITION DATAFRAME AND SAVE###########
 players = EventRankings.merge(forwards, on='playerId', how='inner')
 
-players.to_pickle(path +'/FINAL_PLAYER_DATA/FORWARDS.pkl')
+players.to_pickle(path +'/pickles/FORWARDS.pkl')

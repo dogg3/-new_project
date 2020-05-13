@@ -1,0 +1,12 @@
+   5239 ./flask/dataanalysis/Ranking_ML.ipynb
+   5295 ./flask/dataanalysis/.ipynb_checkpoints/Ranking_ML-checkpoint.ipynb
+    219 ./flask/dataanalysis/.ipynb_checkpoints/preprocessing-checkpoint.ipynb
+   2085 ./flask/dataanalysis/.ipynb_checkpoints/preprocessing_wyscout-checkpoint.ipynb
+   6425 ./flask/dataanalysis/.ipynb_checkpoints/Wyscout_events-checkpoint.ipynb
+    203 ./flask/dataanalysis/.ipynb_checkpoints/preprocessing_transfermarkt-checkpoint.ipynb
+    182 ./flask/dataanalysis/preprocessing.ipynb
+    203 ./flask/dataanalysis/preprocessing_transfermarkt.ipynb
+   6469 ./flask/dataanalysis/Wyscout_events.ipynb
+   2085 ./flask/dataanalysis/preprocessing_wyscout.ipynb
+  28405 total
+

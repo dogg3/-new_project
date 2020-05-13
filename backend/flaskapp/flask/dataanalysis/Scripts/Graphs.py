@@ -94,9 +94,9 @@ pd.set_option('display.width',8999)
 
 import os
 path = os.getcwd()
-p = pd.read_pickle(path + '/preprocessed/players.pkl')
+p = pd.read_pickle('../preprocessed/players.pkl')
 
-shots = pd.read_pickle('./playersShots.pkl')
+shots = pd.read_pickle('../playersShots.pkl')
 forShots = p.groupby('position').get_group('Forward').merge(shots.reset_index(), left_on="wyId", right_on='playerId', how='inner').set_index('playerId')[shots.columns]
 defShots = p.groupby('position').get_group('Defender').merge(shots.reset_index(), left_on="wyId", right_on='playerId', how='inner').set_index('playerId')[shots.columns]
 midShots = p.groupby('position').get_group('Midfielder').merge(shots.reset_index(), left_on="wyId", right_on='playerId', how='inner').set_index('playerId')[shots.columns]

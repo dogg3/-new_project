@@ -1,11 +1,17 @@
 #bash
 echo "building"
-docker build -t gcr.io/footballproject-85cd9/backendflask ./flask/
+docker-compose build --no-cache
 
 
-echo "Push the image to google container registry"
-docker push gcr.io/footballproject-85cd9/backendflask
+echo "Push the backendflask image to google container registry"
+docker push gcr.io/footballproject-85cd9/backendflask:latest
+
+
+echo "Push the nginx image to google container registry"
+docker push gcr.io/footballproject-85cd9/backendnginx:latest
+
 
 
 echo "Update the container image on the deployment"
-kubectl set image deployment/flask flask=gcr.io/footballproject-85cd9/backendflask
+kubectl set image deployment/footyphi flask=gcr.io/footballproject-85cd9/backendflask:latest
+kubectl set image deployment/footyphi nginx=gcr.io/footballproject-85cd9/backendnginx:latest

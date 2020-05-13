@@ -18,5 +18,5 @@ docker build -t gcr.io/${PROJECT_ID}/frontend:${VERSION} .
 docker push gcr.io/${PROJECT_ID}/frontend:${VERSION}
 
 #set new image and deploy
-kubectl set image deployment/football-frontend-react-web frontend=gcr.io/${PROJECT_ID}/frontend:${VERSION}
+kubectl set image deployment/scoutease scouteaseapp=gcr.io/${PROJECT_ID}/frontend:${VERSION}
 

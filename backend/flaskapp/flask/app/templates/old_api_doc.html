@@ -1,0 +1,918 @@
+<!doctype html>
+<html>
+  <head>
+    <title>FootyPhi</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>FootyPhi</h1>
+    <div class="app-desc">An API serving statistically processed footballsdata from the 5 top football leauges in europe from - England, France, Germany, Spain and Italu. Defenders, midfielders and forwards have specific rankings but also general statistics easily available.The api is primarly serving eascouting.com with relevant rankings.</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="hello@helloreverb.com">hello@helloreverb.com</a></div>
+    <div class="app-desc">Version: 0.1</div>
+    
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Defenders">Defenders</a></h4>
+  <ul>
+  <li><a href="#apiDefendersDuelsAnalyticsGet"><code><span class="http-method">get</span> /api/defenders/duels/analytics</code></a></li>
+  <li><a href="#apiDefendersDuelsInfoGet"><code><span class="http-method">get</span> /api/defenders/duels/info</code></a></li>
+  <li><a href="#apiDefendersMatchesGet"><code><span class="http-method">get</span> /api/defenders/matches</code></a></li>
+  <li><a href="#apiDefendersOverallGet"><code><span class="http-method">get</span> /api/defenders/overall</code></a></li>
+  <li><a href="#apiDefendersPassesAnalyticsGet"><code><span class="http-method">get</span> /api/defenders/passes/analytics</code></a></li>
+  <li><a href="#apiDefendersPassesInfoGet"><code><span class="http-method">get</span> /api/defenders/passes/info</code></a></li>
+  <li><a href="#apiDefendersPlayerinfoGet"><code><span class="http-method">get</span> /api/defenders/playerinfo</code></a></li>
+  <li><a href="#apiDefendersRankingsGet"><code><span class="http-method">get</span> /api/defenders/rankings</code></a></li>
+  </ul>
+  <h4><a href="#Forwards">Forwards</a></h4>
+  <ul>
+  <li><a href="#apiForwardsDuelsAnalyticsGet"><code><span class="http-method">get</span> /api/forwards/duels/analytics</code></a></li>
+  <li><a href="#apiForwardsDuelsInfoGet"><code><span class="http-method">get</span> /api/forwards/duels/info</code></a></li>
+  <li><a href="#apiForwardsMatchesGet"><code><span class="http-method">get</span> /api/forwards/matches</code></a></li>
+  <li><a href="#apiForwardsOverallGet"><code><span class="http-method">get</span> /api/forwards/overall</code></a></li>
+  <li><a href="#apiForwardsPassesAnalyticsGet"><code><span class="http-method">get</span> /api/forwards/passes/analytics</code></a></li>
+  <li><a href="#apiForwardsPassesInfoGet"><code><span class="http-method">get</span> /api/forwards/passes/info</code></a></li>
+  <li><a href="#apiForwardsPlayerinfoGet"><code><span class="http-method">get</span> /api/forwards/playerinfo</code></a></li>
+  <li><a href="#apiForwardsRankingsGet"><code><span class="http-method">get</span> /api/forwards/rankings</code></a></li>
+  <li><a href="#apiForwardsShotsAnalyticsGet"><code><span class="http-method">get</span> /api/forwards/shots/analytics</code></a></li>
+  <li><a href="#apiForwardsShotsInfoGet"><code><span class="http-method">get</span> /api/forwards/shots/info</code></a></li>
+  </ul>
+  <h4><a href="#Midfielders">Midfielders</a></h4>
+  <ul>
+  <li><a href="#apiMidfieldersDuelsAnalyticsGet"><code><span class="http-method">get</span> /api/midfielders/duels/analytics</code></a></li>
+  <li><a href="#apiMidfieldersDuelsInfoGet"><code><span class="http-method">get</span> /api/midfielders/duels/info</code></a></li>
+  <li><a href="#apiMidfieldersMatchesGet"><code><span class="http-method">get</span> /api/midfielders/matches</code></a></li>
+  <li><a href="#apiMidfieldersOverallGet"><code><span class="http-method">get</span> /api/midfielders/overall</code></a></li>
+  <li><a href="#apiMidfieldersPassesAnalyticsGet"><code><span class="http-method">get</span> /api/midfielders/passes/analytics</code></a></li>
+  <li><a href="#apiMidfieldersPassesInfoGet"><code><span class="http-method">get</span> /api/midfielders/passes/info</code></a></li>
+  <li><a href="#apiMidfieldersPlayerinfoGet"><code><span class="http-method">get</span> /api/midfielders/playerinfo</code></a></li>
+  <li><a href="#apiMidfieldersRankingsGet"><code><span class="http-method">get</span> /api/midfielders/rankings</code></a></li>
+  <li><a href="#apiMidfieldersShotsAnalyticsGet"><code><span class="http-method">get</span> /api/midfielders/shots/analytics</code></a></li>
+  <li><a href="#apiMidfieldersShotsInfoGet"><code><span class="http-method">get</span> /api/midfielders/shots/info</code></a></li>
+  </ul>
+
+  <h1><a name="Defenders">Defenders</a></h1>
+  <div class="method"><a name="apiDefendersDuelsAnalyticsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/defenders/duels/analytics</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiDefendersDuelsAnalyticsGet</span>)</div>
+    <div class="method-notes">Analytic metrics for defenders&#x27; duels</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A JSON array array of defenders&#x27; duels analytics
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiDefendersDuelsInfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/defenders/duels/info</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiDefendersDuelsInfoGet</span>)</div>
+    <div class="method-notes">Information for defenders&#x27; duels</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A JSON array array of defenders&#x27; duels information. A player-id parameter can be added to retrive a single record.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiDefendersMatchesGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/defenders/matches</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiDefendersMatchesGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiDefendersOverallGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/defenders/overall</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiDefendersOverallGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiDefendersPassesAnalyticsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/defenders/passes/analytics</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiDefendersPassesAnalyticsGet</span>)</div>
+    <div class="method-notes">Information for defenders&#x27; matches</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A JSON array array of defenders&#x27; matcher
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiDefendersPassesInfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/defenders/passes/info</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiDefendersPassesInfoGet</span>)</div>
+    <div class="method-notes">Information for defenders&#x27; passes</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A JSON array array of defenders&#x27; duels information. A player-id parameter can be added to retrive a single record.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiDefendersPlayerinfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/defenders/playerinfo</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiDefendersPlayerinfoGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiDefendersRankingsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/defenders/rankings</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiDefendersRankingsGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Forwards">Forwards</a></h1>
+  <div class="method"><a name="apiForwardsDuelsAnalyticsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/forwards/duels/analytics</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiForwardsDuelsAnalyticsGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiForwardsDuelsInfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/forwards/duels/info</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiForwardsDuelsInfoGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiForwardsMatchesGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/forwards/matches</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiForwardsMatchesGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiForwardsOverallGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/forwards/overall</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiForwardsOverallGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiForwardsPassesAnalyticsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/forwards/passes/analytics</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiForwardsPassesAnalyticsGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiForwardsPassesInfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/forwards/passes/info</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiForwardsPassesInfoGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiForwardsPlayerinfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/forwards/playerinfo</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiForwardsPlayerinfoGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiForwardsRankingsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/forwards/rankings</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiForwardsRankingsGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiForwardsShotsAnalyticsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/forwards/shots/analytics</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiForwardsShotsAnalyticsGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiForwardsShotsInfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/forwards/shots/info</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiForwardsShotsInfoGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Midfielders">Midfielders</a></h1>
+  <div class="method"><a name="apiMidfieldersDuelsAnalyticsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/midfielders/duels/analytics</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiMidfieldersDuelsAnalyticsGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiMidfieldersDuelsInfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/midfielders/duels/info</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiMidfieldersDuelsInfoGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiMidfieldersMatchesGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/midfielders/matches</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiMidfieldersMatchesGet</span>)</div>
+    <div class="method-notes">Information for midfielders&#x27; matches</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A JSON array array of midfielders&#x27; matches
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiMidfieldersOverallGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/midfielders/overall</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiMidfieldersOverallGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiMidfieldersPassesAnalyticsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/midfielders/passes/analytics</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiMidfieldersPassesAnalyticsGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiMidfieldersPassesInfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/midfielders/passes/info</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiMidfieldersPassesInfoGet</span>)</div>
+    <div class="method-notes">Information for midfielders&#x27; passes</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A JSON array array of midfielders&#x27; passes
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiMidfieldersPlayerinfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/midfielders/playerinfo</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiMidfieldersPlayerinfoGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiMidfieldersRankingsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/midfielders/rankings</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiMidfieldersRankingsGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiMidfieldersShotsAnalyticsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/midfielders/shots/analytics</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiMidfieldersShotsAnalyticsGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiMidfieldersShotsInfoGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/midfielders/shots/info</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiMidfieldersShotsInfoGet</span>)</div>
+    <div class="method-notes">JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+  </ol>
+
+  </body>
+</html>

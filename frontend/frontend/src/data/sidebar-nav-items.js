@@ -5,11 +5,11 @@ export default function() {
       to: "/start",
 
     },
-    {
-      title: "Admin",
-
-      to: "/admin",
-    },
+    // {
+    //   title: "Admin",
+    //
+    //   to: "/admin",
+    // },
     {
       title: "Pivot table",
       to: "/pivot-table",
@@ -18,17 +18,13 @@ export default function() {
       title: "Player list",
       to: "/player-list",
     },
-    {
-      title: "Player profile",
-      to: "/player-profile",
-    },
-    {
-      title: "Settings",
-      to: "/settings",
-    },
-    {
-      title: "Errors",
-      to: "/errors",
-    }
+    // {
+    //   title: "Player profile",
+    //   to: "/player-profile",
+    // },
+    // {
+    //   title: "Settings",
+    //   to: "/settings",
+    // },
   ];
 }

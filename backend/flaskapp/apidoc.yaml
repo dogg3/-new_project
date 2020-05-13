@@ -1,0 +1,494 @@
+openapi: 3.0.1
+info:
+  title: FootyPhi
+  description: An API serving statistically processed footballsdata from the 5 top football leauges in europe from - England, France, Germany, Spain and Italu. Defenders, midfielders and forwards have specific rankings but also general statistics easily available.The api is primarly serving eascouting.com with relevant rankings.
+
+
+  version: '0.1'
+servers:
+  - url: 'http://footyphi.com'
+paths:
+  /api/defenders/duels/analytics/stats:
+    get:
+      description: Analytic metrics for all defenders' duels
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: A JSON array array of defenders' duels analytics such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/defenders/passes/analytics/stats:
+    get:
+      description: Analytic metrics for all defenders' passes
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: A JSON array array of defenders' passes analytics such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/defenders/rankings/stats:
+    get:
+      description: Analytic metrics for all defenders' passes
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: A JSON array array of defenders' rankings such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+
+  /api/defenders/passes/matches/stats:
+    get:
+      description: Analytic metrics for all defenders' passes
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: A JSON array array of defenders' matches such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+
+  /api/defenders/duels/analytics:
+    get:
+      description: Analytic metrics for defenders' duels
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: A JSON array array of defenders' duels analytics
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/defenders/duels/info:
+    get:
+      description: Information for defenders' duels
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: A JSON array array of defenders' duels information. A player-id parameter can be added to retrive a single record.
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/defenders/passes/info:
+    get:
+      description: Information for defenders' passes
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: A JSON array array of defenders' duels information. A player-id parameter can be added to retrive a single record.
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/passes/info:
+    get:
+      description: Information for midfielders' passes
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: A JSON array array of midfielders' passes
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/matches:
+    get:
+      description: Information for midfielders' matches
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: A JSON array array of midfielders' matches
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/defenders/passes/analytics:
+    get:
+      description: Information for defenders' matches
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: A JSON array array of defenders' matcher
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/rankings:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/shots/info:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/overall:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/defenders/rankings:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/duels/info:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/defenders/overall:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/defenders/matches:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/defenders/playerinfo:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Defenders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/passes/analytics:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/shots/analytics:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/duels/analytics:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/playerinfo:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/duels/analytics/stats:
+    get:
+      description: Analytic metrics for all midfielders' duels
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: A JSON array array of midfielders' duels analytics such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footfmiyphi.com'
+  /api/midfielders/passes/analytics/stats:
+    get:
+      description: Analytic metrics for all midfielders' passes
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: A JSON array array of midfielders' passes analytics such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/midfielders/rankings/stats:
+    get:
+      description: Analytic metrics for all midfielders' passes
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: A JSON array array of midfielders' rankings such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+
+  /api/midfielders/passes/matches/stats:
+    get:
+      description: Analytic metrics for all midfielders' passes
+      tags:
+        - Midfielders
+      responses:
+        '200':
+          description: A JSON array array of midfielders' matches such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/rankings:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/passes/analytics:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/overall:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/shots/info:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/passes/info:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/shots/analytics:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/matches:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/playerinfo:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/duels/info:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/duels/analytics:
+    get:
+      description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: JSON array of (key, value) pairs where the key is a playerid and the value is a json object with url specific information. A player-id parameter can be added to retrive a single record..
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/duels/analytics/stats:
+    get:
+      description: Analytic metrics for all forwards' duels
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: A JSON array array of forwards' duels analytics such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/passes/analytics/stats:
+    get:
+      description: Analytic metrics for all forwards' passes
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: A JSON array array of forwards' passes analytics such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+  /api/forwards/rankings/stats:
+    get:
+      description: Analytic metrics for all forwards' passes
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: A JSON array array of forwards' rankings such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'
+
+  /api/forwards/passes/matches/stats:
+    get:
+      description: Analytic metrics for all forwards' passes
+      tags:
+        - Forwards
+      responses:
+        '200':
+          description: A JSON array array of forwards' matches such as mean and standard deviation
+      servers:
+        - url: 'http://footyphi.com'
+    servers:
+      - url: 'http://footyphi.com'

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Header } from "semantic-ui-react";
 import "./auth.css";
-//import logo from "../../images/logo.png";
+
 
 class Layout extends Component {
     render() {
@@ -9,7 +9,6 @@ class Layout extends Component {
             <div className="auth-main">
                 <div class="auth-content">
                     <div className="auth-card">
-                        <img  alt="Logo" className="auth-logo" />
                         <Header as="h2" color="black" textAlign="center">
                             {this.props.header}
                         </Header>

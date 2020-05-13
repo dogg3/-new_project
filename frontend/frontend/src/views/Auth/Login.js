@@ -4,10 +4,8 @@ import { Button, Form, Message } from "semantic-ui-react";
 import Layout from "./Layout";
 import {connect} from "react-redux";
 import {signIn} from "./FireabaseSlice";
-import requireAuth from "./requireAuth";
-import myFirebase from "../../firebase";
-import {checkUser} from "./FireabaseSlice";
 
+import {checkUser} from "./FireabaseSlice";
 const INITIAL_STATE = {
     email: '',
     password: '',
@@ -22,7 +20,7 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {...INITIAL_STATE};
-        this.onChange.bind(this)
+        this.onChange.bind(this);
         this.onSubmit.bind(this)
     }
 
@@ -32,13 +30,13 @@ class Login extends Component {
             .then((f)=>{
                 this.props.history.push("/start")
             }).catch(err =>{
-                console.log(err) //just show the login page
+                //console.log()(err) //just show the login page
         })
 
     }
 
     onSubmit = event => {
-        event.preventDefault()
+        event.preventDefault();
         // eslint-disable-next-line no-undef
         const  {email, password} = this.state;
         this.props.signIn(email, password)
@@ -49,7 +47,7 @@ class Login extends Component {
                     error: err
                 })
         })
-    }
+    };
 
 
     onChange = event => {
@@ -67,7 +65,7 @@ render() {
     const isInvalid = password === '' || email === '';
 
     return (
-            <Layout header="Dashboard Log in">
+            <Layout header="Soccerease Login">
                 <Form.Input
                     fluid
                     name="email"
@@ -114,7 +112,7 @@ const mapStateToProps = (state, ownProps) => {
         auth: state.firebase.auth
 
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) =>{
 
@@ -122,7 +120,7 @@ const mapDispatchToProps = (dispatch) =>{
         checkUser: () => dispatch(checkUser()),
         signIn: (email, password) =>dispatch(signIn(email, password))
     }
-}
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

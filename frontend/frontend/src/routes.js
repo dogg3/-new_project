@@ -25,11 +25,11 @@ export default [
         path: "/",
         exact: true,
         layout: DefaultLayout,
-        component: () => <Redirect to="/Main" />
+        component: () => <Redirect to="/start" />
     },
     {
         path: "/main",
-        layout: Plain,
+        layout: DefaultLayout,
         component: Main
     },
     {

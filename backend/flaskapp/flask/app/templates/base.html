@@ -1,23 +1,241 @@
-<!doctype html>
-<title>{% block title %}{% endblock %} FootyPhi </title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<nav>
-  <h1>FootyPhi - API</h1>
-    <h2>Statistical Fotball Analysis</h2>
-  <ul>
+<!DOCTYPE HTML>
+<!--
+	Photon by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>FootyPhi - Football statistics</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}" /></noscript>
+        <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico')}}"  type="image/x-icon">
+	</head>
+	<body class="is-preload">
 
-  </ul>
-</nav>
-<section class="content">
-  <header>
-    {% block header %}{% endblock %}
-  </header>
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+					<span class="icon solid major fa-futbol"></span>
+					<h1>Welcome to <strong>FootyPhi</strong>, football data<br />
+				made simple</a>.</h1>
+					<p></p>
+					<ul class="actions special">
+						<li><a href="#three" class="button scrolly">Discover</a></li>
+					</ul>
+				</div>
+			</section>
+	<!-- Three -->
+			<section id="three" class="main style1 special">
+				<div class="container">
+					<header class="major">
+						<h2>Algorithms and analysis</h2>
 
-  {% block content %}{% endblock %}
-</section>
+					</header>
+					<p>Position specific rankings built on industry expertise and statistical analysis.</p>
+					<div class="row gtr-150">
+						<div class="col-12 col-12-medium">
+							<span class="image fit"><img src="{{ url_for('static', filename='images/shotsDist.png')}}"  /></span>
 
-<div id="footer">
-    {% block footer %}
-        &copy; Copyright 2020 by <a href="http://domain.invalid/">FootyPhi</a>.
-    {% endblock %}
-</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="main style2">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-4 col-12-medium">
+							<ul class="major-icons">
+								<li><span class="icon solid style1 major fa-code"></span></li>
+								<li><span class="icon solid style2 major fa-chart-line"></span></li>
+								<li><span class="icon solid style3 major fa-database"></span></li>
+								<li><span class="icon solid style4 major fa-cog"></span></li>
+								<li><span class="icon solid style5 major fa-desktop"></span></li>
+								<li><span class="icon solid style6 major fa-chart-bar"></span></li>
+							</ul>
+						</div>
+						<div class="col-8 col-12-medium">
+							<header class="major">
+								<h2>RESTFUL-API documentation</h2>
+							</header>
+                            <p>
+                                The api is divided into different positions and the calls are structured the same. Click the button below to get full API documentation.
+                            </p>
+                            <div style="margin-bottom: 50px;" class="button scrolly"><a style="text-decoration: none; border:0px" href="api-doc">FULL API DOC</a></div>
+
+                            <table>
+                                <h2>Midfielders</h2>
+                                <thead>
+                                <th>REQUEST</th>
+                                    <th>URL</th>
+                                    <th>RESPONSE</th>
+                                </thead>
+                                <tbody>
+                                 <tr>
+                                    <td><strong>GET</strong></td>
+                                    <td>/api/midfielders/<strong>rankings</strong></td>
+                                     <td>JSON array with key valsue pairs where player object is populated with rankings of <strong>passes , duels , age and overall. </strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>GET</strong></td>
+                                    <td>/api/midfielders/<strong>playerinfo</strong></td>
+                                    <td><strong>JSON array</strong> of key value pairs. The key is the player id and the value is a JSON object of player information.</td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>GET</strong></td>
+                                    <td>/api/midfielders/<strong>passes/info</strong></td>
+                                    <td>JSON array with key value pairs where player object is populated with <strong>basic</strong> information about their passings.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>GET</strong></td>
+                                    <td>/api/midfielders/<strong>passes/analytics</strong></td>
+                                    <td>JSON array with key value pairs where player object is populated with <strong>advanced</strong> passes metrics. </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>GET</strong></td>
+                                    <td>/api/midfielders/<strong>duels/info</strong></td>
+                                    <td>JSON array with key value pairs where player object is populated with <strong>basic</strong> information about their passings.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>GET</strong></td>
+                                    <td>/api/midfielders/<strong>duels/analytics</strong></td>
+                                    <td>JSON array with key value pairs where player object is populated with <strong>advanced</strong> duels metrics. </td>
+                                </tr>
+                                  <tr>
+                                    <td><strong>GET</strong></td>
+                                    <td>/api/midfielders/<strong>shots/info</strong></td>
+                                    <td>JSON array with key value pairs where player object is populated with <strong>basic</strong> information about their passings.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>GET</strong></td>
+                                    <td>/api/midfielders/<strong>shots/analytics</strong></td>
+                                    <td>JSON array with key value pairs where player object is populated with <strong>advanced</strong> shots metrics. </td>
+                                </tr>
+
+                                 <tr>
+                                    <td><strong>GET</strong></td>
+                                    <td>/api/midfielders/<strong>matches</strong></td>
+                                     <td>JSON array with key value pairs where player object is populated with information about <strong>playing time</strong> for last season.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+<!-- One -->
+			<section id="one" class="main style1">
+				<div class="container">
+					<div class="row gtr-150">
+
+				<div class="col-12 col-12-medium">
+							<header class="major">
+								<h2>The data processing</h2>
+							</header>
+							<p>There are different data types available for analysis in football.
+								These are geospatialrelated data elicited with cameras and trackings.
+								Then there are the event data provided often raw and unprocessed.
+								The data tells how many passes or shots a player have in the season and can then be compared to
+								other players absolute values. However these kind of metrics are often not effective.
+								It is hard to look at isolated data points and draw a conclusion about the player.
+								We took it a step further and analyzed the data of the top 5 leauges to see how the distrubtions of the players
+								event-data were. By studying the data we found positions specific metrics which were clustering the player much better.
+
+
+							</p>
+						</div>
+
+
+						<div style="    display: flex; justify-content: space-around;" class="col-12 col-12-medium imp-medium">
+									<span class="image fit">
+										<img  src="{{ url_for('static', filename='images/PCAKMEANS1.png')}} " />
+									</span>
+									<span class="image fit">
+							<img src="{{ url_for('static', filename='images/PCAKMEANS2.png')}} " />
+									</span>
+									<span class="image fit">
+
+							<img  src="{{ url_for('static', filename='images/PCAKMEANS3.png')}} " />
+									</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Two -->
+			<section  class="main style2">
+				<div class="container">
+					<div class="row gtr-150">
+								<div class="col-6 col-12-medium">
+							<header class="major">
+                                <h2><strong>Scouting admin platform</strong><br />
+								 <a href="http://scoutease.com">scoutease.com</a></h2>
+							</header>
+							<p>FootyPhi servers scoutease.com with data. An admin page for professional scouting departments.</p>
+								</div>
+						<div class="col-6 col-12-medium">
+							<span class="image fit">
+								<img  src="{{ url_for('static', filename='images/playerprofile.png')}} " />
+							</span>
+
+						</div>
+
+
+				</div>
+			</section>
+
+
+<!--		&lt;!&ndash; Four &ndash;&gt;-->
+<!--			<section id="four" class="main style2 special">-->
+<!--				<div class="container">-->
+<!--					<header class="major">-->
+<!--						<h2>Ipsum feugiat consequat?</h2>-->
+<!--					</header>-->
+<!--					<p>Sed lacus nascetur ac ante amet sapien.</p>-->
+<!--					<ul class="actions special">-->
+<!--						<li><a href="#" class="button wide primary">Sign Up</a></li>-->
+<!--						<li><a href="#" class="button wide">Learn More</a></li>-->
+<!--					</ul>-->
+<!--				</div>-->
+<!--			</section>-->
+
+
+		<!-- Footer -->
+			<section id="footer">
+<!--				<ul class="icons">-->
+<!--					<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>-->
+<!--					<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>-->
+<!--					<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>-->
+<!--					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>-->
+<!--					<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>-->
+<!--				</ul>-->
+				<ul class="copyright">
+					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</section>
+
+		<!-- Scripts -->
+
+        <script src="{{ url_for('static', filename = 'js/jquery.min.js') }}"></script>
+
+	            <script src="{{ url_for('static', filename = 'js/jquery.scrolly.min.js') }}"></script>
+
+
+            <script src="{{ url_for('static', filename = 'js/breakpoints.min.js') }}"></script>
+          <script src="{{ url_for('static', filename = 'js/util.js') }}"></script>
+
+          <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+
+
+	</body>
+</html>

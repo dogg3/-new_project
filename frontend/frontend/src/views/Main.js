@@ -8,7 +8,7 @@ import DefaultLayout from "../layouts/Default";
 const Main = ({ auth }) => {
     return (
         <div>
-            {!auth.isLoaded ? <h2>Loading</h2> : !auth.isEmpty ? DefaultLayout(Start) : <Login />}
+            {!auth.isLoaded ? <h2>Loading</h2> : !auth.isEmpty ? <h2>Loading</h2> : <Login />}
         </div>
     );
 };

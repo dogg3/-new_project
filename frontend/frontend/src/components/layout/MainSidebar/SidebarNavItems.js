@@ -6,7 +6,7 @@ import { Store } from "../../../flux";
 
 class SidebarNavItems extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       navItems: Store.getSidebarItems()

@@ -1,6 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
 import myFirebase from "../../firebase";
-import { useFirebase } from 'react-redux-firebase'
 
 
 const AuthenticationSlice = createSlice({
@@ -24,11 +23,11 @@ const AuthenticationSlice = createSlice({
             state.isSigningUp = true
         },
         signup_success(state, action) {
-            const {user} = action.payload
+            const {user} = action.payload;
             state.error = null
         },
         signup_error(state, action) {
-            const {error_message} = action.payload
+            const {error_message} = action.payload;
             state.error = action.payload
 
         },
@@ -36,15 +35,15 @@ const AuthenticationSlice = createSlice({
             state.isLoggingIn = true
         },
         signin_success(state, action){
-            state.user = action.payload
-            state.isLoggingIn = false
-            state.isAuthenticated = true
+            state.user = action.payload;
+            state.isLoggingIn = false;
+            state.isAuthenticated = true;
             state.siginError = null
         },
         signin_error(state, action){
-            const {error} = action.payload
-            state.siginError = error
-            state.isAuthenticated = false
+            const {error} = action.payload;
+            state.siginError = error;
+            state.isAuthenticated = false;
             state.loginError =true
 
         },
@@ -52,43 +51,42 @@ const AuthenticationSlice = createSlice({
            state.isLoggingOut = true
         },
         logout_success(state, action){
-            state.isLoggingOut = false
-            state.loginError = false
+            state.isLoggingOut = false;
+            state.loginError = false;
             state.isLoggedIn = false
         },
         logout_failure(state, action){
-            state.isLoggingOut = false
+            state.isLoggingOut = false;
             state.isLoggedIn = false
 
         },
         resetPassword_success(state, action){
-            state.resetPasswordSent = true
+            state.resetPasswordSent = true;
             state.resetPassword_error = false
 
         },
         resetPassword_failure(state, action){
-            state.resetPasswordSent = false
-            state.resetPassword_error = true
+            state.resetPasswordSent = false;
+            state.resetPassword_error = true;
             state.resetPasssword_error_msg = action.payload
         },
         create_user_request(state, action){
-            state.isCreatingUser = true
+            state.isCreatingUser = true;
             state.create_user_error = false
 
         },
         create_user_success(state, action){
-            state.isCreatingUser = false
+            state.isCreatingUser = false;
             state.create_user_error = false
         },
         create_user_failure(state, action){
-            state.isCreatingUser = false
-            state.create_user_error = true
+            state.isCreatingUser = false;
+            state.create_user_error = true;
             state.create_user_error_msg = action.payload
         }
 
     }
-})
-
+});
 
 
 export const {
@@ -106,7 +104,7 @@ export const {
     create_user_failure,
     create_user_success,
     create_user_request
-} = AuthenticationSlice.actions
+} = AuthenticationSlice.actions;
 
 
 export default AuthenticationSlice.reducer
@@ -121,7 +119,7 @@ export default AuthenticationSlice.reducer
 
 
 export const signIn = (email, password) =>  (dispatch, getState, {getFirebase}) => {
-    dispatch(signin_request())
+    dispatch(signin_request());
 
     return new Promise((resolve, reject)=>{
 
@@ -139,22 +137,22 @@ export const signIn = (email, password) =>  (dispatch, getState, {getFirebase}) 
 
                 })
                 .catch((error) => {
-                    dispatch(signin_error( {error: error.message}))
+                    dispatch(signin_error( {error: error.message}));
                     reject(error.message)
                 });
         } catch (err) {
 
-            dispatch(signin_error( {error: err.message}))
+            dispatch(signin_error( {error: err.message}));
             reject(err.message)
         }
     })
 
-}
+};
 
 
 export const signOut = () => async dispatch => {
     try {
-        dispatch(logout_request()) //calling action creators
+        dispatch(logout_request()); //calling action creators
         myFirebase
             .auth()
             .signOut()
@@ -171,13 +169,12 @@ export const signOut = () => async dispatch => {
     }
 
 
-}
+};
 
 
     // Reset password with Firebaseexport const resetPassword = email => async dispatch => {
 
 export const resetPassword = email =>  dispatch => {
-
     return new Promise((resolve, reject) =>{
         try {
             myFirebase
@@ -211,10 +208,7 @@ export const signUp = (email, password) =>  dispatch => {
 
 
   return new Promise((resolve, reject)=>{
-        dispatch(sign_up_request())
-
-
-
+        dispatch(sign_up_request());
         try{
             myFirebase
                 .auth()
@@ -228,53 +222,50 @@ export const signUp = (email, password) =>  dispatch => {
                 .then(dataAfterEmail => {
                     myFirebase.auth().onAuthStateChanged(function(user) {
                         if (user.emailVerified) {
-                            dispatch(signup_success())
+                            dispatch(signup_success());
                             resolve()
                         } else {
-                            dispatch(signup_error("User is not verified, go to your email!"))
+                            dispatch(signup_error("User is not verified, go to your email!"));
                             reject("User is not verified, go to your email!")
                         }
                     });
                 }).catch(err =>{
-                    console.log(typeof(err.message))
-                dispatch(signup_error(err.message))
+                    //console.log()(typeof(err.message))
+                dispatch(signup_error(err.message));
                 reject(err.message)
                 })
         }catch(err){
-            dispatch(signup_error(err.message))
+            dispatch(signup_error(err.message));
             reject(err.message())
         }
    })
-}
+};
 
 
 export const createUserInFirestore = (user) =>  (dispatch, getState, {getFirebase, getFirestore}) => {
 
-
-
     return new Promise((resolve, reject) =>{
         dispatch(create_user_request());
-
-
         try {
             const uid = user.uid;
-            const email = user.email
+            const email = user.email;
 
-            const firestore = getFirestore()
+            const firestore = getFirestore();
             firestore.collection('users').doc(uid).set({
                 email:email,
                 id: uid
             }).then(()=>{
+                dispatch(create_user_success());
                 resolve()
             })
         } catch (err) {
-            dispatch(create_user_failure(err))
+            dispatch(create_user_failure(err));
             reject(err.message)
         }
 
     });
 
-}
+};
 
 
 export const checkUser = () => (dispatch, getState, {getFirebase, getFirestore}) =>{
@@ -282,7 +273,7 @@ export const checkUser = () => (dispatch, getState, {getFirebase, getFirestore})
     return new Promise((resolve, reject)=>{
         //dispatch
         try {
-            const firebase = getFirebase()
+            const firebase = getFirebase();
             firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
                     resolve("user is defined")
@@ -290,12 +281,10 @@ export const checkUser = () => (dispatch, getState, {getFirebase, getFirestore})
                     reject("user is null")
                 }
             });
-
-
         }catch (err){
             reject(err.message)
         }
     })
 
-}
+};
 

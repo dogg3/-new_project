@@ -1,68 +1,157 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Scoutease
 
-## Available Scripts
+- Douglas Landvik
+- City University of London
+- Part of third year undergrad project.
 
-In the project directory, you can run:
+## Description
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+An admin application for an arbritary professional football scouting department. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The application is built in reactjs with shard dashboard lite - a UI template for react admin pages. shard dashboard lite is free and MIT licensed.
 
-### `yarn test`
+https://designrevision.com/downloads/shards-dashboard-lite/
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Antd reusable components are also used for the UI. The components used are also MIT licensed.
 
-### `yarn build`
+https://ant.design/
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Prerequiste
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+node
+ 
+## Installation
+- Clone the repo in your terminal by clicking the _green_ clone or download button at the top right and copyin the url
+- In your terminal, type ```git clone URL```
+  - replace URL with the url you copied
+  - hit enter
+- This will copy all the files from this repo down to your computer
+- In your terminal, cd into the directory you just created
+- Type ```npm install``` to install all dependencies
+- Last, but not least, type ```npm start``` to run the app locally.
 
-### `yarn eject`
+- To look at the code, just open up the project in your favorite code editor!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Miscellaneous
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Testing
+React tests are implementented extensivley with 117 tests in 11 different test suites.
+```console
+npm test
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Firebase database
+The application is configured to connect to a firebase for authorization and persistent. Please be careful with the information. The files for firebase configuration can be found under src/views/auth/
 
-## Learn More
+### Redux with redux toolkit
+A simple flux state managemnt is used for routing as it was included in the theme. Configuration can be found under src/flux
+Redux is used as state management in the application and.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Thunk middleware
+thunk middleware is used to implement asynchronous calls. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Configuration
+The reducers are decentralized for better state management.                             
+The actions, action creators are kept under slices such as 'player', 'pivotlist' etc,
 
-### Code Splitting
+ ### Root reducer
+ The root reducer under /src is merging all reducers which is then intilized in the /src/store with the thunk middleware
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Redux firestore and react-redux-firebase
+Methods added to thunk middleware 
+- getFirebase
+- getFirestore
 
-### Analyzing the Bundle Size
+### Redux looger
+Redux logger is used to log all state actions in the console. It is helpful for debuggin.
+Add redux logger extension from chrome store and find the redux logger in the chrom dev tool. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+These methods are reachable from the store and makes management of users and authorization easier.
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Dependencies
+```js
+     "@testing-library/react": "^9.5.0",
+    "@testing-library/react-hooks": "^3.2.1",
+    "@types/jest": "^25.2.1",
+    "axios-mock-adapter": "^1.18.1",
+    "cypress": "^3.8.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "riteway": "^6.1.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/user-event": "^7.1.2",
+    "@reduxjs/toolkit": "^1.3.6",
+    "antd": "^4.2.2",
+    "axios": "^0.19.2",
+    "camelize": "^1.0.0",
+    "chart.js": "^2.9.3",
+    "classnames": "^2.2.6",
+    "cross-env": "^5.2.0",
+    "dateformat": "^3.0.3",
+    "firebase": "^7.14.3",
+    "firebase-tools": "^7.16.2",
+    "flux": "^3.1.3",
+    "global": "^4.4.0",
+    "lodash.find": "^4.6.0",
+    "react": "^16.13.1",
+    "react-chartjs-2": "^2.9.0",
+    "react-dom": "^16.13.1",
+    "react-ga": "^2.5.6",
+    "react-icons": "^3.10.0",
+    "react-quill": "^1.3.5",
+    "react-redux": "^7.2.0",
+    "react-redux-firebase": "^3.4.0",
+    "react-router-dom": "^5.2.0",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "^3.4.0",
+    "redux": "^4.0.5",
+    "redux-auth-wrapper": "^3.0.0",
+    "redux-firestore": "^0.12.0",
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.4",
+    "semantic-ui-react": "^0.88.2",
+    "serve": "^11.3.0",
+    "shards-react": "^1.0.0",
+    "shortid": "^2.2.14"
+```
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Production
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+# Production
 
-### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The application is deployed on google clouds kuberentes engine. The application is containerized via a dockerfile.
+
+### Docker containers
+From the root folder (frontend) there is a Dockerfile which specifies a build from a node:13.13.0-alpine base image.
+Port 3000 is used. 
+
+
+Run ```docker  build -t '{prefered tag}'``` and then run the container by ``` docker run -p 3000:3000 {prefered tag}
+
+
+### Kuberentes enigne
+
+- Kuberentes deployment files are located in the root folder of the project als. See react.yml which is specifying a deployment on a kuberentes cluster with 3 replicas. .
+
+- Kubernetes service creation script is also located under root. It is under the name scoutease-servuce.yaml and creating a loadbalancer connected to a reserved static ip address: 34.105.191.26. It is listening on port 3000 (container port) and exposing to port 80.
+
+
+### Build.sh
+
+A build script is located under root folder also for easily re-deployment. 
+ - building docker images
+ - pushing docker images to google registry
+ - set the image for relevant deployment through kubectl CLI
+
+Change tag name for personal google registry so push will work. 
+
+
+

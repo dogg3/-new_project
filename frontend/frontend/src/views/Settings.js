@@ -14,6 +14,6 @@ const Settings = () => (
         <h3>Adjust weights</h3>
     </Container>
 
-)
+);
 
 export default Settings

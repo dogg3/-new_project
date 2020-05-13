@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: footyphi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      role: app
+  template:
+    metadata:
+      labels:
+        role: app
+    spec:
+      containers:
+        - name: flask
+          image: gcr.io/footballproject-85cd9/backendflask:latest
+          ports:
+            - containerPort: 3031
+        - name: nginx
+          image: gcr.io/footballproject-85cd9/backendnginx:latest
+          ports:
+            - containerPort: 80

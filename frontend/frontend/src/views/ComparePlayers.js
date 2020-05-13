@@ -13,6 +13,6 @@ const ComparePlayers = () => (
         </Row>
     </Container>
 
-)
+);
 
 export default ComparePlayers
